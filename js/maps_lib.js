@@ -344,7 +344,10 @@
             for (var row in data) {
                 template = "\
                   <tr>\
-                      <td><strong>" + data[row][0] + "</strong><br /><small>" + data[row][1] + "</small></td>\
+                      <td>\
+                        <strong>" + data[row][0] + "</strong>\
+                        <br />" + self.formatNaics(data[row][11]) + "\
+                      </td>\
                       <td>" + data[row][2] + "<br />" + data[row][3] + ", " + data[row][4] + " " + data[row][5] + "</td>\
                       <td>";
                 
@@ -387,6 +390,23 @@
             x1 = x1.replace(rgx, '$1' + ',' + '$2');
         }
         return x1 + x2;
+    };
+
+    MapsLib.prototype.formatNaics = function (codes) {
+        var self = this;
+        codes = codes.replace(/[^0-9\,]+/g, '');
+        var code_list = [codes];
+        if (codes.indexOf(',') > -1)
+            code_list = codes.split(',');
+
+        var result = "";
+
+        $.each( code_list, function( k, v ) {
+            if (v != '' && v != '0')
+                result += naics_codes[v] + "<br />";
+        });
+
+        return result;
     };
 
     // maintains map centerpoint for responsive design
