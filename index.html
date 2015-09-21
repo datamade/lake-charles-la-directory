@@ -36,7 +36,7 @@
             <h4>
               Search by name
             </h4>
-            <input class='form-control' id='name_search' placeholder="Enter a business or organization name" type='text' />
+            <input class='form-control' id='name_search' placeholder="Enter a business name" type='text' />
             <h4>
               Near an address <small>(<a id='find_me' href='#'>find me</a>)</small>
             </h4>
@@ -62,15 +62,22 @@
               <li>
                 <label class='checkbox inline'>
                   <input type='checkbox' id='cbType1' />
-                  <span class='filter-box filter-green'></span>
                   Disadvantaged business
+                  <span class='label label-warning'>DBE</span>
                 </label>
               </li>
               <li>
                 <label class='checkbox inline'>
                   <input type='checkbox' id='cbType2' />
-                  <span class='filter-box filter-red'></span>
-                  Small business
+                  Small business 
+                  <span class='label label-info'>SBE</span>
+                </label>
+              </li>
+              <li>
+                <label class='checkbox inline'>
+                  <input type='checkbox' id='cbType3' />
+                  Disadvantaged small business
+                  <span class='label label-success'>DSBE</span>
                 </label>
               </li>
             </ul>
@@ -110,10 +117,10 @@
             <table class='table'>
               <thead>
                 <tr>
-                  <th></th>
                   <th>Name</th>
-                  <th>Address</th>
-                  <th><i class='fa fa-phone'></i> Contact</th>
+                  <th><i class='fa fa-fw fa-map-marker'></i> Address</th>
+                  <th><i class='fa fa-fw fa-phone'></i> Contact</th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody id='results_list'></tbody>

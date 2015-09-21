@@ -167,6 +167,9 @@
         if ( $("#cbType2").is(':checked')) //
             self.whereClause += " AND 'SBE' = 'X'";
 
+        if ( $("#cbType3").is(':checked')) //
+            self.whereClause += " AND 'DSBE' = 'X'";
+
 
         var name_search = $("#name_search").val().replace("'", "\\'");
         if (name_search != '') {
@@ -313,7 +316,7 @@
 
     MapsLib.prototype.getList = function(whereClause) {
         var self = this;
-        var selectColumns = "'VENDOR NAME','TYPE OF BUSINESS (FORMATTED)',ADDRESS,CITY,ST,ZIP,'PHONE #','FAX #',CODES";
+        var selectColumns = "'VENDOR NAME','TYPE OF BUSINESS (FORMATTED)',ADDRESS,CITY,ST,ZIP,'PHONE #','FAX #',DSBE,DBE,SBE,CODES";
 
         self.query({
             select: selectColumns,
@@ -339,12 +342,8 @@
         }
         else {
             for (var row in data) {
-                var type_color = 'green';
-                // if (data[row][10] == '3') type_color = 'blue';
-                // if (data[row][10] == '2') type_color = 'red';
                 template = "\
                   <tr>\
-                      <td><span class='filter-box filter-" + type_color + "'></span></td>\
                       <td><strong>" + data[row][0] + "</strong><br /><small>" + data[row][1] + "</small></td>\
                       <td>" + data[row][2] + "<br />" + data[row][3] + ", " + data[row][4] + " " + data[row][5] + "</td>\
                       <td>";
@@ -357,7 +356,21 @@
                 
                 template += "\
                       </td>\
-                  </tr>";
+                      <td>";
+
+                if (data[row][8] == "X") 
+                    template += "<span class='label label-success'>DSBE</span> ";
+
+                if (data[row][9] == "X") 
+                    template += "<span class='label label-warning'>DBE</span> ";
+
+                if (data[row][10] == "X") 
+                    template += "<span class='label label-info'>SBE</span> ";
+
+                template += "\
+                      </td>\
+                    </tr>";
+
                 results.append(template);
             }
         }
