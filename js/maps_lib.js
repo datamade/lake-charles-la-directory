@@ -176,6 +176,12 @@
             self.whereClause += " AND 'VENDOR NAME' contains ignoring case '" + name_search + "'";
             $.address.parameter('name', encodeURIComponent(name_search));
         }
+
+        var search_naics = $("#search_naics").val();
+        console.log(search_naics)
+        if (search_naics != '') {
+            self.whereClause += " AND 'CODES' contains ignoring case '" + search_naics + "'";
+        }
         //-----end of custom filters-----
 
         self.getgeoCondition(address, function (geoCondition) {

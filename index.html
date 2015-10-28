@@ -58,6 +58,8 @@
             <h4>
               Business type
             </h4>
+            <select id='search_naics' class='form-control'></select>
+
             <ul class='inputs-list unstyled'>
               <li>
                 <label class='checkbox inline'>
@@ -145,6 +147,13 @@
         }).resize();
         
         $(function() {
+
+          var naics_options = "<option value=''>-- Select --</option>";
+          $.each(naics_codes, function(key, val) {
+            naics_options += "<option value='" + key + "'>" + val + "</option>"
+          });
+          $("#search_naics").html(naics_options);
+
           var myMap = new MapsLib({
             fusionTableId:      "12Z1axYk_jHE70K97611ZHcQ6AsW8aC_30fHDAopJ",
             googleApiKey:       "AIzaSyA3FQFrNr5W2OEVmuENqhb2MBB2JabdaOY",
