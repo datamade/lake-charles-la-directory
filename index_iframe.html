@@ -87,6 +87,7 @@
           </div>
         </form>
       </div>
+      <div class='alert alert-info' id='result_box' ><strong id='result_count'></strong></div>
 
       <noscript>
         <div class='alert alert-info'>
@@ -95,7 +96,19 @@
         </div>
       </noscript>
       <div id='map_canvas'></div>
-      <div class='alert alert-info' id='result_box' ><strong id='result_count'></strong></div>
+      <div id='listview' style='display: none;'>
+        <table class='table'>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th><i class='fa fa-fw fa-map-marker'></i> Address</th>
+              <th><i class='fa fa-fw fa-phone'></i> Contact</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id='results_list'></tbody>
+        </table>
+      </div>
       <p class='pull-right'>
         <small><a href='http://derekeder.com/searchable_map_template/'>Searchable Map Template</a> by <a href='http://derekeder.com'>Derek Eder</a>.</small>
       </p>
