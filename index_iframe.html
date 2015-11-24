@@ -124,9 +124,9 @@
       //<![CDATA[        
         $(function() {
           
-          var naics_options = "<option value=''>-- Select business type --</option>";
+          var naics_options = "<option value=''>-- Select NAICS code and business type --</option>";
           $.each(naics_codes, function(key, val) {
-            naics_options += "<option value='" + key + "'>" + val + "</option>"
+            naics_options += "<option value='" + key + "'>" + key + " - " + val + "</option>"
           });
           $("#search_naics").html(naics_options);
 
