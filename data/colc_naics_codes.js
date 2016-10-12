@@ -70,4 +70,4 @@ var naics_codes = {
     "541500": "Computer Systems Design and Related Services",
     "569110": "Administrative and Support and Waste Management and Remediation Services",
     "814120": "Private Households"
-}
+} 
